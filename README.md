@@ -5,6 +5,20 @@ Or more precisely: Windows WSL Setup for Python Development
 This is a quick reference to set up a Linux environment for Python development on Windows.
 Used tools are WSL, Ubuntu, Pyenv, VSCode and GitHub.
 
+### Table of Contents
+
+[Installation Quick Guide](#installation-quick-guide)
+1. [WSL](#1-wsl)
+2. [Ubuntu](#2-ubuntu)
+3. [Pyenv and Virtualenv](#3-pyenv-and-virtualenv)
+4. [Python Build Dependencies](#4-python-built-dependencies)
+5. [Install Python](#5-install-python)
+6. [Virtual Environment](#6-virtual-environment)
+7. [GitHub SSH Connection](#7-github-ssh-connection)
+8. [VSCode](#8-vscode)
+
+[Further Tips](#further-tips)
+
 ## Installation Quick Guide
 
 The following notes are a quick reference.
@@ -59,7 +73,7 @@ If you run into issues, please follow the official documentations.
 	$ source ~/.bashrc
 	```
 
-- Official [pyenv Github repository](https://github.com/pyenv/pyenv) with installation instructions
+In case of issues: Official [pyenv Github repository](https://github.com/pyenv/pyenv) with installation instructions.
 
 ### 4. Python Built Dependencies
 
@@ -120,7 +134,7 @@ If you run into issues, please follow the official documentations.
 	$ ssh-keygen -t ed25519 -C "your_email@example.com"
 	```
 
-	When prompted, press Enter to accept the default file location and skip the passphrase.
+	When prompted, press Enter to accept the default file location and name (else you will run into issues after every reboot)
 - Start the ssh-agent:
 
 	```sh
@@ -134,11 +148,12 @@ If you run into issues, please follow the official documentations.
 	ssh-add ~/.ssh/id_ed25519
 	```
 
-- Next, copy your SSH public key via `$ cat id_rsa.pub` to show the key in the terminal and then copy paste it
+- Print your SSH public key via `$ cat id_rsa.pub` and copy it
 - Visit the GitHub website and access your account settings (click your icon and choose **Settings**)
 - Go to **SSH and GPG keys** and click **New SSH key**
 - Give it a describing name, copy the key and save it
-- In case of issues: Official [GitHub SSH guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+In case of issues: Official [GitHub SSH guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 - To clone a repo copy its SSH link and use it via
     ```sh
@@ -165,6 +180,7 @@ If you run into issues, please follow the official documentations.
 
 ### Console Customization
 
+- In Windows Search search for "terminal| or "Ubuntu"
 - Right-click the top frame of the terminal and choose **Settings**
 - Under Startup set your default profile to Ubuntu
 - Go to **Profiles → Ubuntu → Appearance** to change color scheme, font and font size, etc.
