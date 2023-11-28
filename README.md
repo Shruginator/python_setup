@@ -148,17 +148,30 @@ In case of issues: Official [pyenv Github repository](https://github.com/pyenv/p
 	ssh-add ~/.ssh/id_ed25519
 	```
 
-- Print your SSH public key via `$ cat id_rsa.pub` and copy it
+- Print your SSH public key via `$ cat ~/.ssh/id_ed25519.pub` and copy it
 - Visit the GitHub website and access your account settings (click your icon and choose **Settings**)
 - Go to **SSH and GPG keys** and click **New SSH key**
 - Give it a describing name, copy the key and save it
+- Now we can test the connection as follows:
 
-In case of issues: Official [GitHub SSH guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
-
-- To clone a repo copy its SSH link and use it via
-    ```sh
-    $ git clone <ssh_repo_link>
-    ```
+	```sh
+	$ ssh -T git@github.com
+	```
+	You may see a warning like this:
+	```
+	> The authenticity of host 'github.com (IP ADDRESS)' can't be establised.
+	> ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+	> Are you sure you wnat to continue connecting (yes/no)?
+	```
+	Verify that the fingerprint in the message you see matches one of [GitHub's public key fingerprints](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints).
+	If it does, then type `yes`.
+	If it worked, you should see your username in the following message:
+	```
+	> Hi <USERNAME>! You've successfully authenticated, but GitHub does not
+	> provide shell access.
+	```
+- To clone a repo copy its SSH link and use it via `$ git clone <SSH_REPO_LINK>`
+- In case of issues: Official [GitHub SSH guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 
 ### 8. VSCode
 
